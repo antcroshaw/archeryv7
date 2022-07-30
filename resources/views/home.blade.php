@@ -16,6 +16,22 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+                
+            </div>
+            <hr>
+            <div class="card">
+               
+                    <div class="card-header">
+                        Admin Menu
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a href="/Categories" class="list-group-item list-group-item-action">Categories</a>
+                            <a href="#" class="list-group-item list-group-item-action">Handicaps</a>
+                            <a href="#" class="list-group-item list-group-item-action">Scores</a>
+                           
+                          </div>
+                </div>
             </div>
         </div>
     </div>
