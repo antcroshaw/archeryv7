@@ -15,12 +15,16 @@
    <div class="card-body">
        <div class="list-group">
           @foreach ($categories as $category )
-           <a href="#" class="list-group-item list-group-item-action"> {{ $category->name }} </a>
-           <form method="POST" action="Categories/{{$category->id}}">
-            @csrf
-            @method('DELETE')
-            <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
-        </form>
+           <p><a href="{{ route('Categories.show', $category->id) }}" class="list-group-item list-group-item-action">
+             {{ $category->name }} </a> 
+             <div class="d-grid gap-2 col-2 ">
+             <form method="POST" action="{{ route('Categories.destroy', $category->id) }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            <a type="button" class="btn btn-warning " href="#">Edit</a>
+             </div></p>
         @endforeach
         <a href="/Categories/create" class="list-group-item list-group-item-action"> create new category +</a>
          </div>
