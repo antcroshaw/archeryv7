@@ -13,7 +13,11 @@
      {{ $category->name }}
    </div>
    <div class="card-body">
-    <p>handicaps in this category will be listed here</p>
+    @forelse ($handicaps as $handicap)
+	<p>{{ $handicap->name }}</p>
+	@empty
+	<p>no handicaps have been added</p>
+@endforelse
    </div>
    <div class="d-grid gap-2 col-2 mx-auto ">
    <a href="{{ route('Categories.index') }}" type="button" class="btn btn-secondary btn-sm">Back to Home</a>

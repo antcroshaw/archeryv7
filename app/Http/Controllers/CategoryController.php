@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Handicap;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -57,7 +58,8 @@ class CategoryController extends Controller
     public function show($id)
     {
         return view('auth.category.show', [
-            'category' => Category::findOrFail($id)
+            'handicaps' => Handicap::where('category_id',$id)->get(),
+            'category' => Category::where('id',$id)->first()
         ]);
     }
 
@@ -67,9 +69,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        return view('auth.category.edit', [
+            'category' => Category::where('id',$id)->first()
+        ]);
     }
 
     /**
@@ -79,9 +83,16 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request,$id)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+        
+        Category::where('id',$id)->update([
+            'name' => $request->name
+        ]);
+        return redirect(route('Categories.index'));
     }
 
     /**

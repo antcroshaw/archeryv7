@@ -23,7 +23,7 @@
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
-            <a type="button" class="btn btn-warning " href="#">Edit</a>
+            <a type="button" class="btn btn-warning " href="{{ route('Categories.edit',$category->id) }}">Edit</a>
              </div></p>
         @endforeach
         <a href="/Categories/create" class="list-group-item list-group-item-action"> create new category +</a>
