@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+      
+
         Category::factory()->create([
             'name' => 'Outdoor GNAS'
         ]);
@@ -38,26 +40,8 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Lanzarote2012')
         ]);
 
-        Handicap::factory()->create([
-            'name' => 'York',
-            'location' => 'Outdoor',
-            'category_id' => 1
-        ]);
 
-        Handicap::factory()->create([
-            'name' => 'Western',
-            'location' => 'Outdoor',
-            'category_id' => 1
-        ]);
-        Handicap::factory()->create([
-            'name' => 'American',
-            'location' => 'Indoor',
-            'category_id' => 2
-        ]);
-        Handicap::factory()->create([
-            'name' => 'Junior York',
-            'location' => 'Indoor',
-            'category_id' => 2
-        ]);
+
+        \App\Models\Handicap::factory(9)->create();
     }
 }

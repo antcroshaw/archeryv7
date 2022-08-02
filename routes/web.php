@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::resource('Categories', CategoryController::class);
-Route::resource('Handicaps', HandicapController::class);
+Route::resource('Handicaps', HandicapController::class)->except('index');
 
 Auth::routes();
 
