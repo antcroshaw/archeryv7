@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Models\Handicap;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
@@ -22,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::resource('Categories', CategoryController::class);
-Route::resource('Handicaps', HandicapController::class)->except('index');
+Route::resource('Handicaps', HandicapController::class);
 
 Auth::routes();
 

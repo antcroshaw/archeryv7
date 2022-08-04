@@ -44,9 +44,14 @@ class HandicapController extends Controller
      * @param  \App\Models\Handicap  $handicap
      * @return \Illuminate\Http\Response
      */
-    public function show(Handicap $handicap)
+    public function show($id)
     {
-        //
+
+    
+        return view('auth.handicap.show', [
+           
+            'handicap' => Handicap::find($id),
+        ]);
     }
 
     /**
