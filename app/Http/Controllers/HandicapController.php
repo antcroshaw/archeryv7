@@ -97,8 +97,11 @@ class HandicapController extends Controller
      * @param  \App\Models\Handicap  $handicap
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Handicap $handicap)
+    public function destroy($id)
     {
-        //
+        $handicap = Handicap::findOrFail($id);
+        Handicap::findOrFail($id)->delete();
+
+        return redirect('Categories/' . $handicap->category_id);
     }
 }
