@@ -74,9 +74,13 @@ class HandicapController extends Controller
      * @param  \App\Models\Handicap  $handicap
      * @return \Illuminate\Http\Response
      */
-    public function edit(Handicap $handicap)
+    public function edit($id)
     {
-        //
+        
+        return view('auth.handicap.edit', [
+            'handicap' => Handicap::where('id',$id)->first(),
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -86,9 +90,20 @@ class HandicapController extends Controller
      * @param  \App\Models\Handicap  $handicap
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Handicap $handicap)
+    public function update(Request $request,$id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'category_id' => 'required'
+        ]);
+        
+        Handicap::where('id',$id)->update([
+            'name' => $request->name,
+            'location' => $request->location,
+            'category_id' => $request->category_id
+        ]);
+        return redirect('Categories/' . $request->category_id);
     }
 
     /**
