@@ -26,7 +26,7 @@
          <a type="button" class="btn btn-warning " href="{{ route('Handicaps.edit',$handicap->id) }}">Edit</a>
           </div></p>
      @endforeach
-     <a href="/Categories/create" class="list-group-item list-group-item-action"> create new handicap +</a>
+     <a href="/Handicaps/create" class="list-group-item list-group-item-action"> create new handicap +</a>
       </div>
       <br>
       <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>

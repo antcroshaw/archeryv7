@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Handicap;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class HandicapController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('auth.handicap.create', ['categories' => Category::all()]);
     }
 
     /**
@@ -35,7 +37,19 @@ class HandicapController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'category_id' => 'required'
+        ]);
+  
+       Handicap::create([
+          'name' => $request->name,
+          'location' => $request->location,
+          'category_id' => $request->category_id
+       ]);
+       
+         return redirect('Categories/' . $request->category_id);
     }
 
     /**
