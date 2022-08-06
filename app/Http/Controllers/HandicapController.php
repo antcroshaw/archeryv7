@@ -15,7 +15,9 @@ class HandicapController extends Controller
      */
     public function index()
     {
-        //
+        return view('auth.handicap.index', [
+            'handicaps' =>  Handicap::all()
+        ]);
     }
 
     /**

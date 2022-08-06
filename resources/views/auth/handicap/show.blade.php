@@ -11,6 +11,11 @@
    <div class="card-header">
     {{ $handicap->name }}
    </div>
+   <div class="card-body">
+    <h5>Handicap Location: {{ $handicap->location }}</h5>
+    
+   </div>
+
    {{-- <div class="card-body">
     @forelse ($handicaps as $handicap)
 	<p>{{ $handicap->name }}</p>
@@ -20,7 +25,7 @@
 <p>scores will go here
    </div>
    <div class="d-grid gap-2 col-2 mx-auto ">
-   <a href="{{ route('Categories.index') }}" type="button" class="btn btn-secondary btn-sm">Back to Home</a>
+   <a href="{{ route('Handicaps.index') }}" type="button" class="btn btn-secondary btn-sm">Back to Home</a>
    <br>
    </div>
 </div>
