@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Handicap;
+use App\Models\Round;
 use Illuminate\Http\Request;
 
-class HandicapController extends Controller
+class RoundController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class HandicapController extends Controller
      */
     public function index()
     {
-        return view('auth.handicap.index', [
-            'handicaps' =>  Handicap::all()
+        return view('auth.round.index', [
+            'rounds' =>  Round::all()
         ]);
     }
 
@@ -27,8 +27,8 @@ class HandicapController extends Controller
      */
     public function create()
     {
-        
-        return view('auth.handicap.create', ['categories' => Category::all()]);
+
+        return view('auth.round.create', ['categories' => Category::all()]);
     }
 
     /**
@@ -44,43 +44,43 @@ class HandicapController extends Controller
             'location' => 'required',
             'category_id' => 'required'
         ]);
-  
-       Handicap::create([
+
+       Round::create([
           'name' => $request->name,
           'location' => $request->location,
           'category_id' => $request->category_id
        ]);
-       
+
          return redirect('Categories/' . $request->category_id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Handicap  $handicap
+     * @param  \App\Models\Round  $handicap
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
 
-    
-        return view('auth.handicap.show', [
-           
-            'handicap' => Handicap::find($id),
+
+        return view('auth.round.show', [
+
+            'round' => Round::find($id),
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Handicap  $handicap
+     * @param  \App\Models\Round  $handicap
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        
-        return view('auth.handicap.edit', [
-            'handicap' => Handicap::where('id',$id)->first(),
+
+        return view('auth.round.edit', [
+            'round' => Round::where('id',$id)->first(),
             'categories' => Category::all()
         ]);
     }
@@ -89,7 +89,7 @@ class HandicapController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Handicap  $handicap
+     * @param  \App\Models\Round  $handicap
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
@@ -99,8 +99,8 @@ class HandicapController extends Controller
             'location' => 'required',
             'category_id' => 'required'
         ]);
-        
-        Handicap::where('id',$id)->update([
+
+        Round::where('id',$id)->update([
             'name' => $request->name,
             'location' => $request->location,
             'category_id' => $request->category_id
@@ -111,14 +111,14 @@ class HandicapController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Handicap  $handicap
+     * @param  \App\Models\Round  $handicap
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $handicap = Handicap::findOrFail($id);
-        Handicap::findOrFail($id)->delete();
+        $round = Round::findOrFail($id);
+        Round::findOrFail($id)->delete();
 
-        return redirect('Categories/' . $handicap->category_id);
+        return redirect('Categories/' . $round->category_id);
     }
 }

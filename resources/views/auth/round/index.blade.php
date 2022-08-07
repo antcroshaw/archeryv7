@@ -4,29 +4,29 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-           
+
 
 
 <div class="card">
-               
+
    <div class="card-header">
-       Handicaps
+       Rounds
    </div>
    <div class="card-body">
        <div class="list-group">
-          @foreach ($handicaps as $handicap )
-           <p><a href="{{ route('Handicaps.show', $handicap->id) }}" class="list-group-item list-group-item-action">
-             {{ $handicap->name }} </a> 
+          @foreach ($rounds as $round )
+           <p><a href="{{ route('Rounds.show', $round->id) }}" class="list-group-item list-group-item-action">
+             {{ $round->name }} </a>
              <div class="d-grid gap-2 col-2 ">
-             <form method="POST" action="{{ route('Handicaps.destroy', $handicap->id) }}">
+             <form method="POST" action="{{ route('Rounds.destroy', $round->id) }}">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
-            <a type="button" class="btn btn-warning " href="{{ route('Handicaps.edit',$handicap->id) }}">Edit</a>
+            <a type="button" class="btn btn-warning " href="{{ route('Rounds.edit',$round->id) }}">Edit</a>
              </div></p>
         @endforeach
-        <a href="/Handicaps/create" class="list-group-item list-group-item-action"> create new handicap +</a>
+        <a href="/Handicaps/create" class="list-group-item list-group-item-action"> create new round +</a>
          </div>
          <br>
          <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>

@@ -1,11 +1,11 @@
 <?php
 
 use App\Models\Category;
-use App\Models\Handicap;
+use App\Models\Round;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\HandicapController;
+use App\Http\Controllers\RoundController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::resource('Categories', CategoryController::class);
-Route::resource('Handicaps', HandicapController::class);
+Route::resource('Rounds', RoundController::class);
 
 Auth::routes();
 

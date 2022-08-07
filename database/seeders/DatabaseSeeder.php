@@ -5,7 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
-use App\Models\Handicap;
+use App\Models\Round;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-      
+
 
         Category::factory()->create([
             'name' => 'Outdoor GNAS'
@@ -42,6 +42,6 @@ class DatabaseSeeder extends Seeder
 
 
 
-        \App\Models\Handicap::factory(9)->create();
+        Round::factory(9)->create();
     }
 }

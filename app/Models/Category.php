@@ -11,7 +11,7 @@ class Category extends Model
     use HasFactory;
     protected $fillable = ['name'];
 
-    public function handicaps() {
-        return $this->hasMany(Handicap::class);
+    public function rounds() {
+        return $this->hasMany(Round::class);
     }
 }
