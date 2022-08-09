@@ -43,5 +43,9 @@ class DatabaseSeeder extends Seeder
 
 
         Round::factory(9)->create();
+
+        $this->call([
+            ArcherSeeder::class
+        ]);
     }
 }

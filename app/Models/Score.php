@@ -12,4 +12,8 @@ class Score extends Model
     public function round() {
         return $this->belongsTo(Round::class);
     }
+
+    public function archer() {
+        return $this->belongsTo(Archer::class);
+    }
 }
