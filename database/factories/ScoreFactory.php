@@ -17,7 +17,10 @@ class ScoreFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'round_id' => $this->faker->numberBetween(1,9),
+            'archer_id' => $this->faker->numberBetween(1,2),
+            'location' => $this->faker->randomElement(['Indoor','Outdoor']),
+            'score' => $this->faker->numberBetween(1,100)
         ];
     }
 }

@@ -19,10 +19,15 @@ return new class extends Migration
             ->constrained('rounds')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+            $table->foreignId('archer_id')
+            ->constrained('archers')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->string('location')->required;
             $table->bigInteger('score')->required;
             $table->timestamps();
         });
+        //new comment to change datetime
     }
 
     /**
