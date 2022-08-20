@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoundController;
+use App\Http\Controllers\ScoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::get('/', function () {
 
 Route::resource('Categories', CategoryController::class);
 Route::resource('Rounds', RoundController::class);
+Route::resource('Scores',ScoreController::class);
 
 Auth::routes();
 

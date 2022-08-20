@@ -28,7 +28,7 @@
                         <div class="list-group">
                             <a href="/Categories" class="list-group-item list-group-item-action">Categories</a>
                             <a href="/Rounds" class="list-group-item list-group-item-action">Rounds</a>
-                            <a href="#" class="list-group-item list-group-item-action">Scores</a>
+                            <a href="/Scores" class="list-group-item list-group-item-action">Scores</a>
 
                           </div>
                 </div>
