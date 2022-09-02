@@ -23,13 +23,33 @@
         </div>
 
 
-        <form action="{{ route('Categories.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('Scores.store') }}" method="POST" enctype="multipart/form-data">
   @csrf
     <div class="mb-3">
-      <label for="name" class="form-label">Category Name</label>
-      <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp">
-      <div id="nameHelp" class="form-text">Make sure the category name is unique, no duplicates allowed</div>
+      <label for="round" class="form-label">Round Name</label>
+      <select class="form-control" id="round" name="round">
+        <option value="1">Bristol</option>
+        <option value="2">York</option>
+      </select>
     </div>
+    <div class="mb-3">
+        <label for="archer" class="form-label">Archer Name</label>
+        <select class="form-control" id="archer" name="archer">
+          <option value="1">Anthony Croshaw</option>
+          <option value="2">Mike Croshaw</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">location</label>
+        <select class="form-control" id="archer" name="archer">
+          <option value="Outdoor">Outdoor</option>
+          <option value="Indoor">Indoor</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="score" class="form-label">Score</label>
+        <input type="text" class="form-control" id="score" name="score">
+      </div>
     <button type="submit" class="btn btn-outline-secondary btn-sm">Create</button>
   </form>
   <br>

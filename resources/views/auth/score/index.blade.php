@@ -13,7 +13,11 @@
        Scores
    </div>
    <div class="card-body">
+    <br>
+         
        <div class="list-group">
+        <a href="/Scores/create" class="list-group-item list-group-item-action"> create new score +</a>
+    <br>
           @foreach ($scores as $score )
            <p><a href="{{ route('Scores.show', $score->id) }}" class="list-group-item list-group-item-action">
              {{ $score->score }} </a> 
@@ -26,7 +30,7 @@
             <a type="button" class="btn btn-warning " href="{{ route('Scores.edit',$score->id) }}">Edit</a>
              </div></p>
         @endforeach
-        <a href="/Scores/create" class="list-group-item list-group-item-action"> create new score +</a>
+       
          </div>
          <br>
          <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>

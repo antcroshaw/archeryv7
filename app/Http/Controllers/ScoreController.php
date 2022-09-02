@@ -26,7 +26,7 @@ class ScoreController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.score.create');
     }
 
     /**
