@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Score extends Model
 {
-    protected $fillable = ['round','score','handicap_id'];
+    protected $fillable = ['round_id','archer_id','score','location'];
     use HasFactory;
     public function round() {
         return $this->belongsTo(Round::class);

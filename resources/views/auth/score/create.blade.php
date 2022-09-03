@@ -27,21 +27,21 @@
   @csrf
     <div class="mb-3">
       <label for="round" class="form-label">Round Name</label>
-      <select class="form-control" id="round" name="round">
+      <select class="form-control" id="round" name="round_id">
         <option value="1">Bristol</option>
         <option value="2">York</option>
       </select>
     </div>
     <div class="mb-3">
         <label for="archer" class="form-label">Archer Name</label>
-        <select class="form-control" id="archer" name="archer">
+        <select class="form-control" id="archer" name="archer_id">
           <option value="1">Anthony Croshaw</option>
           <option value="2">Mike Croshaw</option>
         </select>
       </div>
       <div class="mb-3">
         <label for="location" class="form-label">location</label>
-        <select class="form-control" id="archer" name="archer">
+        <select class="form-control" id="archer" name="location">
           <option value="Outdoor">Outdoor</option>
           <option value="Indoor">Indoor</option>
         </select>

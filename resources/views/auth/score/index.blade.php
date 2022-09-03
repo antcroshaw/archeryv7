@@ -22,7 +22,7 @@
            <p><a href="{{ route('Scores.show', $score->id) }}" class="list-group-item list-group-item-action">
              {{ $score->score }} </a> 
              <div class="d-grid gap-2 col-2 ">
-             <form method="POST" action="{{ route('Categories.destroy', $score->id) }}">
+             <form method="POST" action="{{ route('Scores.destroy', $score->id) }}">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>

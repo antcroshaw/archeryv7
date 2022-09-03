@@ -37,7 +37,21 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $request->validate([
+            'round_id' => 'required',
+            'archer_id' => 'required',
+            'location' => 'required',
+            'score' => 'required'
+        ]);
+  
+       Score::create([
+          'round_id' => $request->round_id,
+          'archer_id' => $request->archer_id,
+          'location' => $request->location,
+          'score' => $request->score
+       ]);
+         return redirect(route('Scores.index'));
     }
 
     /**
@@ -80,8 +94,9 @@ class ScoreController extends Controller
      * @param  \App\Models\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Score $score)
+    public function destroy($id)
     {
-        //
+        Score::destroy($id);
+        return redirect(route('Scores.index'));
     }
 }
