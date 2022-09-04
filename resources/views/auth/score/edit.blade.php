@@ -23,16 +23,36 @@
         </div>
 
 
-        <form action="{{ route('Categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
-  @csrf
-  @method('PATCH')
-    <div class="mb-3">
-      <label for="name" class="form-label">Category Name - Edit</label>
-      <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" value="{{ $category->name }}">
-      <div id="nameHelp" class="form-text">Make sure the category name is unique, no duplicates allowed</div>
-    </div>
-    <button type="submit" class="btn btn-outline-secondary btn-sm">Update</button>
-  </form>
+        <form action="{{ route('Scores.update', $score->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PATCH')
+              <div class="mb-3">
+                <label for="round" class="form-label">Round Name</label>
+                <select class="form-control" id="round" name="round_id">
+                  <option value="1"  {{ $score->round_id === 1 ? 'selected' : '' }} >Bristol</option>
+                  <option value="2" {{ $score->round_id === 2 ? 'selected' : '' }}>York</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                  <label for="archer" class="form-label">Archer Name</label>
+                  <select class="form-control" id="archer" name="archer_id">
+                    <option value="1" {{ $score->archer_id === 1 ? 'selected' : '' }}>Anthony Croshaw</option>
+                    <option value="2" {{ $score->archer_id === 2 ? 'selected' : '' }}>Mike Croshaw</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="location" class="form-label">location</label>
+                  <select class="form-control" id="archer" name="location">
+                    <option value="Outdoor" {{ $score->location === 'Outdoor' ? 'selected' : '' }}>Outdoor</option>
+                    <option value="Indoor" {{ $score->location === 'Indoor' ? 'selected' : '' }}>Indoor</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="score" class="form-label">Score</label>
+                  <input type="text" class="form-control" id="score" name="score" value="{{ $score->score }}">
+                </div>
+              <button type="submit" class="btn btn-outline-secondary btn-sm">Update</button>
+            </form>
   <br>
   <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>
     </div>

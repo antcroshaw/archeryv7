@@ -71,9 +71,12 @@ class ScoreController extends Controller
      * @param  \App\Models\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function edit(Score $score)
+    public function edit($id)
     {
-        //
+        
+        return view('auth.score.edit', [
+            'score' => Score::where('id',$id)->first()
+        ]);
     }
 
     /**
@@ -83,9 +86,22 @@ class ScoreController extends Controller
      * @param  \App\Models\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Score $score)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'round_id' => 'required',
+            'archer_id' => 'required',
+            'location' => 'required',
+            'score' => 'required'
+        ]);
+  
+       Score::where('id',$id)->update([
+          'round_id' => $request->round_id,
+          'archer_id' => $request->archer_id,
+          'location' => $request->location,
+          'score' => $request->score
+       ]);
+         return redirect(route('Scores.index'));
     }
 
     /**
