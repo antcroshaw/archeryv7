@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Archer;
 use App\Models\Score;
 use Illuminate\Http\Request;
 
@@ -60,9 +61,13 @@ class ScoreController extends Controller
      * @param  \App\Models\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function show(Score $score)
+    public function show($id)
     {
-        //
+        return view('auth.score.show', [
+
+            'score' => Score::find($id),
+           
+        ]);
     }
 
     /**
