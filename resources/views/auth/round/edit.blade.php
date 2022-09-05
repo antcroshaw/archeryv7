@@ -36,7 +36,7 @@
       <select class="form-select" aria-label="category select" name="category_id">
 
         @foreach ($categories as $category )
-        <option value="{{ $category->id }}" {{ $handicap->category_id == $category->id ? 'selected' : '' }}>
+        <option value="{{ $category->id }}" {{ $round->category_id == $category->id ? 'selected' : '' }}>
           {{ $category->name }}</option>
         @endforeach
       </select>

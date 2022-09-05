@@ -26,7 +26,7 @@
             <a type="button" class="btn btn-warning " href="{{ route('Rounds.edit',$round->id) }}">Edit</a>
              </div></p>
         @endforeach
-        <a href="/Handicaps/create" class="list-group-item list-group-item-action"> create new round +</a>
+        <a href="/Roundss/create" class="list-group-item list-group-item-action"> create new round +</a>
          </div>
          <br>
          <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>

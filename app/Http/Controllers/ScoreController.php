@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ScoreFormRequest;
 use App\Models\Archer;
 use App\Models\Score;
 use Illuminate\Http\Request;
@@ -36,15 +37,10 @@ class ScoreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ScoreFormRequest $request)
     {
        
-        $request->validate([
-            'round_id' => 'required',
-            'archer_id' => 'required',
-            'location' => 'required',
-            'score' => 'required'
-        ]);
+        $request->validated();
   
        Score::create([
           'round_id' => $request->round_id,
@@ -91,14 +87,9 @@ class ScoreController extends Controller
      * @param  \App\Models\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ScoreFormRequest $request, $id)
     {
-        $request->validate([
-            'round_id' => 'required',
-            'archer_id' => 'required',
-            'location' => 'required',
-            'score' => 'required'
-        ]);
+        $request->validated();
   
        Score::where('id',$id)->update([
           'round_id' => $request->round_id,

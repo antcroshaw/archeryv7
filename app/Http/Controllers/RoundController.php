@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoundFormRequest;
 use App\Models\Category;
 use App\Models\Round;
 use Illuminate\Http\Request;
@@ -37,13 +38,9 @@ class RoundController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoundFormRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'location' => 'required',
-            'category_id' => 'required'
-        ]);
+        $request->validated();
 
        Round::create([
           'name' => $request->name,
@@ -92,13 +89,9 @@ class RoundController extends Controller
      * @param  \App\Models\Round  $handicap
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(RoundFormRequest $request,$id)
     {
-        $request->validate([
-            'name' => 'required',
-            'location' => 'required',
-            'category_id' => 'required'
-        ]);
+        $request->validated();
 
         Round::where('id',$id)->update([
             'name' => $request->name,
