@@ -29,6 +29,8 @@
                             <a href="/Categories" class="list-group-item list-group-item-action">Categories</a>
                             <a href="/Rounds" class="list-group-item list-group-item-action">Rounds</a>
                             <a href="/Scores" class="list-group-item list-group-item-action">Scores</a>
+                            <a href="/Archers" class="list-group-item list-group-item-action">Archers</a>
+
 
                           </div>
                 </div>

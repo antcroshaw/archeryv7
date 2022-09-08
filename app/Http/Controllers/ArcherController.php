@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Archer;
+use App\Models\Score;
 use Illuminate\Http\Request;
 
 class ArcherController extends Controller
@@ -14,7 +15,10 @@ class ArcherController extends Controller
      */
     public function index()
     {
-        //
+        return view('auth.archer.index', [
+            'archers' =>  Archer::all(),
+           
+        ]);
     }
 
     /**
@@ -44,9 +48,12 @@ class ArcherController extends Controller
      * @param  \App\Models\Archer  $archer
      * @return \Illuminate\Http\Response
      */
-    public function show(Archer $archer)
+    public function show($id)
     {
-        //
+        return view('auth.archer.show', [
+            'archer' => Archer::find($id),
+           'scores' => $scores = Score::where('archer_id', $id)->paginate(5)
+        ]);
     }
 
     /**

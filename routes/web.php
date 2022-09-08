@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArcherController;
 use App\Models\Category;
 use App\Models\Round;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +27,7 @@ Route::get('/', function () {
 Route::resource('Categories', CategoryController::class);
 Route::resource('Rounds', RoundController::class);
 Route::resource('Scores',ScoreController::class);
+Route::resource('Archers',ArcherController::class);
 
 Auth::routes();
 
