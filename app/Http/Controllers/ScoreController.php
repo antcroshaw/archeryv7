@@ -111,4 +111,6 @@ class ScoreController extends Controller
         Score::destroy($id);
         return redirect(route('Scores.index'));
     }
+
+   
 }

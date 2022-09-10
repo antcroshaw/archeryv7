@@ -16,7 +16,9 @@
 
    </div>
 
-<p>scores will go here
+@foreach ( $round->scores as $score )
+    <p> {{ $score->score }}</p>
+@endforeach
    </div>
    <div class="d-grid gap-2 col-2 mx-auto ">
    <a href="{{ route('Rounds.index') }}" type="button" class="btn btn-secondary btn-sm">Back to Home</a>

@@ -24,6 +24,7 @@
       </ul>     
 </div>
 <br>
+
 {{  $scores->links() }}
    
    <div class="d-grid gap-2 col-2 mx-auto ">
