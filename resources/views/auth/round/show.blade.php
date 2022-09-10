@@ -15,10 +15,11 @@
     <h5>Handicap Location: {{ $round->location }}</h5>
 
    </div>
-
+   <div class="list-group">
 @foreach ( $round->scores as $score )
-    <p> {{ $score->score }}</p>
+    <p class="list-group-item"> {{ $score->score }}</p>
 @endforeach
+   </div>
    </div>
    <div class="d-grid gap-2 col-2 mx-auto ">
    <a href="{{ route('Rounds.index') }}" type="button" class="btn btn-secondary btn-sm">Back to Home</a>

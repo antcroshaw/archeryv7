@@ -17,4 +17,8 @@ class Round extends Model
     public function scores() {
         return $this->hasMany(Score::class);
     }
+
+    public function handicaps() {
+        return $this->hasMany(Handicap::class);
+    }
 }

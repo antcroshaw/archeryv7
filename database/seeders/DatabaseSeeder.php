@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Round;
 use App\Models\Score;
 use App\Models\User;
+use App\Models\Handicap;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -50,5 +51,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Score::factory(20)->create();
+
+        Handicap::factory(30)->create();
     }
 }

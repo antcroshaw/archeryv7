@@ -3,11 +3,13 @@
 use App\Http\Controllers\ArcherController;
 use App\Models\Category;
 use App\Models\Round;
+use App\Models\Handicap;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoundController;
 use App\Http\Controllers\ScoreController;
+use App\Http\Controllers\HandicapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +26,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::resource('Handicaps',HandicapController::class);
 Route::resource('Categories', CategoryController::class);
 Route::resource('Rounds', RoundController::class);
 Route::resource('Scores',ScoreController::class);
 Route::resource('Archers',ArcherController::class);
+
 
 Auth::routes();
 
