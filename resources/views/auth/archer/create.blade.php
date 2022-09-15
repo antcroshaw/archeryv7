@@ -23,33 +23,25 @@
         </div>
 
 
-        <form action="{{ route('Scores.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('Archers.store') }}" method="POST" enctype="multipart/form-data">
   @csrf
     <div class="mb-3">
-      <label for="round" class="form-label">Round Name</label>
-      <select class="form-control" id="round" name="round_id">
-        <option value="1">Bristol</option>
-        <option value="2">York</option>
-      </select>
+      <label for="name" class="form-label">Archer Name</label>
+      <input type="text" class="form-control" id="name" name="name">
     </div>
     <div class="mb-3">
-        <label for="archer" class="form-label">Archer Name</label>
-        <select class="form-control" id="archer" name="archer_id">
-          <option value="1">Anthony Croshaw</option>
-          <option value="2">Mike Croshaw</option>
+        <label for="archer" class="form-label">DOB</label>
+       <input type="date" name="DOB">
         </select>
       </div>
       <div class="mb-3">
-        <label for="location" class="form-label">location</label>
-        <select class="form-control" id="archer" name="location">
-          <option value="Outdoor">Outdoor</option>
-          <option value="Indoor">Indoor</option>
+        <label for="sex" class="form-label">sex</label>
+        <select class="form-control" id="sex" name="sex">
+          <option value="male">male</option>
+          <option value="female">female</option>
         </select>
       </div>
-      <div class="mb-3">
-        <label for="score" class="form-label">Score</label>
-        <input type="text" class="form-control" id="score" name="score">
-      </div>
+    
     <button type="submit" class="btn btn-outline-secondary btn-sm">Create</button>
   </form>
   <br>

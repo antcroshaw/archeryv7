@@ -27,7 +27,7 @@
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
-            <a type="button" class="btn btn-warning " href="{{ route('Archers.edit',$archer) }}">Edit</a>
+            <a type="button" class="btn btn-warning " href="{{ route('Archers.edit', $archer->id) }}">Edit</a>
              </div></p>
         @endforeach
        

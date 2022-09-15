@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Archer;
 use App\Models\Score;
 use Illuminate\Http\Request;
+use App\Http\Requests\ArcherFormRequest;
 
 class ArcherController extends Controller
 {
@@ -28,7 +29,7 @@ class ArcherController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.archer.create');
     }
 
     /**
@@ -37,9 +38,16 @@ class ArcherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArcherFormRequest $request)
     {
-        //
+        $request->validated();
+        Archer::create([
+            'name' => $request->name,
+            'DOB' => $request->DOB,
+            'sex' => $request->sex
+         ]);
+  
+           return redirect('Archers/');
     }
 
     /**
@@ -62,9 +70,13 @@ class ArcherController extends Controller
      * @param  \App\Models\Archer  $archer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Archer $archer)
+    public function edit($id)
     {
-        //
+
+    
+        return view('auth.archer.edit', [
+            'archer' => Archer::where('id',$id)->first()
+        ]);
     }
 
     /**
@@ -74,9 +86,16 @@ class ArcherController extends Controller
      * @param  \App\Models\Archer  $archer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Archer $archer)
+    public function update(ArcherFormRequest $request, $id)
     {
-        //
+        $request->validated();
+
+        Archer::where('id',$id)->update([
+            'name' => $request->name,
+            'DOB' => $request->DOB,
+            'sex' => $request->sex
+        ]);
+        return redirect('Archers/' . $request->id);
     }
 
     /**
@@ -85,8 +104,10 @@ class ArcherController extends Controller
      * @param  \App\Models\Archer  $archer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Archer $archer)
+    public function destroy($id)
     {
-        //
+        Archer::findOrFail($id)->delete();
+
+        return redirect(route('Archers.index'));
     }
 }
