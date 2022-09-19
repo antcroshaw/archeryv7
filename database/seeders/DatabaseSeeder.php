@@ -52,6 +52,6 @@ class DatabaseSeeder extends Seeder
 
         Score::factory(20)->create();
 
-        Handicap::factory(30)->create();
+       
     }
 }

@@ -30,7 +30,7 @@
                             <a href="/Rounds" class="list-group-item list-group-item-action">Rounds</a>
                             <a href="/Scores" class="list-group-item list-group-item-action">Scores</a>
                             <a href="/Archers" class="list-group-item list-group-item-action">Archers</a>
-                            <a href="/Handicaps" class="list-group-item list-group-item-action">Handicaps</a>
+                           
 
 
                           </div>
