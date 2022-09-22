@@ -14,7 +14,7 @@
    </div>
    <div class="card-body">
     <div class="list-group">
-      <p>Archer Id: {{ $score->archer_id }}</p> // replace this with archer name 
+      <p>Archer Name: {{ $score->archer->name }}</p>
       <p>Location: {{ $score->location }}</p>
       </div>
       

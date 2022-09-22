@@ -27,7 +27,7 @@ Route::get('/', function () {
 });
 
 
-Route::resource('Handicaps',HandicapController::class);
+
 Route::resource('Categories', CategoryController::class);
 Route::resource('Rounds', RoundController::class);
 Route::resource('Scores',ScoreController::class);
