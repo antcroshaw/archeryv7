@@ -16,6 +16,7 @@
     <div class="list-group">
       <p>Archer Name: {{ $score->archer->name }}</p>
       <p>Location: {{ $score->location }}</p>
+      <p>Round type: {{ $score->round->name }}</p>
       </div>
       
 </div>
