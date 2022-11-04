@@ -28,8 +28,13 @@
     <div class="mb-3">
       <label for="round" class="form-label">Round Name</label>
       <select class="form-control" id="round" name="round_id">
-        <option value="1">Bristol</option>
-        <option value="2">York</option>
+        @if($rounds)
+        @foreach ($rounds as $round)
+          <option value="{{ $loop->iteration }}" > {{ $round->name }}</option>
+        @endforeach
+        @else
+        <option> No rounds available</option>
+        @endif
       </select>
     </div>
     <div class="mb-3">

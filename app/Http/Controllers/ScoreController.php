@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ScoreFormRequest;
 use App\Models\Archer;
 use App\Models\Score;
+use App\Models\Round;
 use Illuminate\Http\Request;
 
 class ScoreController extends Controller
@@ -28,7 +29,10 @@ class ScoreController extends Controller
      */
     public function create()
     {
-        return view('auth.score.create');
+        
+        return view('auth.score.create', [
+            'rounds' =>  Round::all()
+        ]);
     }
 
     /**
@@ -48,7 +52,11 @@ class ScoreController extends Controller
           'location' => $request->location,
           'score' => $request->score
        ]);
-         return redirect(route('Scores.index'));
+
+       return view('auth.round.show', [
+
+        'round' => Round::find($request->round_id),
+    ]);
     }
 
     /**
