@@ -25,13 +25,14 @@ use App\Http\Controllers\HandicapController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/Scores/create/{name?}', [ScoreController::class, 'create'])->name('Scores.create');
 
 
 Route::resource('Categories', CategoryController::class);
 Route::resource('Rounds', RoundController::class);
-Route::resource('Scores',ScoreController::class);
+Route::resource('Scores',ScoreController::class)->except('create');
 Route::resource('Archers',ArcherController::class);
+
 
 
 Auth::routes();

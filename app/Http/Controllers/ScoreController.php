@@ -27,11 +27,12 @@ class ScoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($name = null)
     {
         
         return view('auth.score.create', [
-            'rounds' =>  Round::all()
+            'rounds' =>  Round::all(),
+            'name' => $name
         ]);
     }
 

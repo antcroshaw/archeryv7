@@ -20,7 +20,9 @@
     <p class="list-group-item"> {{ $score->score }}</p>
 @endforeach
    </div>
-   <a href="{{ route('Scores.create') }}" type="button" class="btn btn-secondary btn-sm">Add new score</a>
+   <a href="{{ route('Scores.create', [
+    'name' => $round->name
+   ]) }}" type="button" class="btn btn-secondary btn-sm">Add new score</a>
    </div>
    <hr>
    <div class="d-grid gap-2 col-2 mx-auto ">

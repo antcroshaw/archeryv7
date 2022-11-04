@@ -22,7 +22,6 @@
             @endif
         </div>
 
-
         <form action="{{ route('Scores.store') }}" method="POST" enctype="multipart/form-data">
   @csrf
     <div class="mb-3">
@@ -30,7 +29,7 @@
       <select class="form-control" id="round" name="round_id">
         @if($rounds)
         @foreach ($rounds as $round)
-          <option value="{{ $loop->iteration }}" > {{ $round->name }}</option>
+          <option value="{{ $loop->iteration }}"  @if($name === $round->name) selected @endif> {{ $round->name }}</option>
         @endforeach
         @else
         <option> No rounds available</option>
