@@ -39,8 +39,14 @@
     <div class="mb-3">
         <label for="archer" class="form-label">Archer Name</label>
         <select class="form-control" id="archer" name="archer_id">
-          <option value="1">Anthony Croshaw</option>
-          <option value="2">Mike Croshaw</option>
+          @if ($archers)
+          @foreach ($archers as $archer)
+          <option value="{{ $archer->id }}">{{ $archer->name }}</option>
+          @endforeach
+          @else 
+          <option value="">no archers available</option>
+          @endif
+          
         </select>
       </div>
       <div class="mb-3">

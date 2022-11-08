@@ -32,7 +32,8 @@ class ScoreController extends Controller
         
         return view('auth.score.create', [
             'rounds' =>  Round::all(),
-            'name' => $name
+            'name' => $name,
+            'archers' => Archer::all()
         ]);
     }
 
