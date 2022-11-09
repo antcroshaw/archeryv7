@@ -15,22 +15,46 @@
    <div class="card-body">
     <br>
          
-       <div class="list-group">
-        <a href="/Scores/create" class="list-group-item list-group-item-action"> create new score +</a>
-    <br>
-          @foreach ($scores as $score )
-           <p><a href="{{ route('Scores.show', $score->id) }}" class="list-group-item list-group-item-action">
-             {{ $score->score }} </a> 
-             <div class="d-grid gap-2 col-2 ">
-             <form method="POST" action="{{ route('Scores.destroy', $score->id) }}">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-            <a type="button" class="btn btn-warning " href="{{ route('Scores.edit',$score) }}">Edit</a>
-             </div></p>
-        @endforeach
        
+       
+
+        <table class="table table-striped table-hover table-bordered table-responsive">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">
+                Archer Name
+                </th>
+                <th scope="col">
+                 Round
+                </th>
+                <th scope="col">
+                 Score
+                </th>
+                <th scope="col">
+                    Location
+                </th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($scores as $score )
+                <tr>
+                    
+                    <td>{{ $score->archer->name }}</td>
+                    <td>{{ $score->round->name }}</td>
+                    <td>{{ $score->score }}</td>
+                    <td>{{ $score->location }}</td>
+                    <td> <form method="POST" action="{{ route('Scores.destroy', $score->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form></td>
+                    <td> <a type="button" class="btn btn-sm btn-warning " href="{{ route('Scores.edit',$score) }}">Edit</a></td>
+                </tr>
+                @endforeach
+            </tbody>
+          </table> 
          </div>
          <br>
          <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>
