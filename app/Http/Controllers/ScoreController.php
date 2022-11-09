@@ -18,7 +18,7 @@ class ScoreController extends Controller
     public function index()
     {
         return view('auth.score.index', [
-            'scores' =>  Score::orderBy('id','desc')->get()
+            'scores' =>  Score::orderBy('id','desc')->paginate(10)
         ]);
     }
 
