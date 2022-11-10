@@ -13,21 +13,42 @@
        Rounds
    </div>
    <div class="card-body">
-       <div class="list-group">
-          @foreach ($rounds as $round )
-           <p><a href="{{ route('Rounds.show', $round->id) }}" class="list-group-item list-group-item-action">
-             {{ $round->name }} </a>
-             <div class="d-grid gap-2 col-2 ">
-             <form method="POST" action="{{ route('Rounds.destroy', $round->id) }}">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-            <a type="button" class="btn btn-warning " href="{{ route('Rounds.edit',$round->id) }}">Edit</a>
-             </div></p>
-        @endforeach
-        <a href="/Roundss/create" class="list-group-item list-group-item-action"> create new round +</a>
-         </div>
+     
+         <table class="table table-striped table-hover table-bordered table-responsive">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">
+                Name
+                </th>
+                <th scope="col">
+                 Location
+                </th>
+                <th scope="col">
+                 Category
+                </th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($rounds as $round )
+                <tr>
+                    
+                    <td>{{ $round->name }}</td>
+                    <td>{{ $round->location }}</td>
+                    <td>{{ $round->category->name }}</td>
+                    <td><a type="button" class="btn btn-warning " href="{{ route('Rounds.edit',$round->id) }}">Edit</a>
+                    </td>
+                    <td> <form method="POST" action="{{ route('Rounds.destroy', $round->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form></td>
+                    
+                </tr>
+                @endforeach
+            </tbody>
+          </table> 
          <br>
          <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>
 </div>

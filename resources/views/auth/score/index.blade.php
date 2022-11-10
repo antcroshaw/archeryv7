@@ -45,12 +45,13 @@
                     <td>{{ $score->round->name }}</td>
                     <td>{{ $score->score }}</td>
                     <td>{{ $score->location }}</td>
+                    <td> <a type="button" class="btn btn-sm btn-warning " href="{{ route('Scores.edit',$score) }}">Edit</a></td>
+
                     <td> <form method="POST" action="{{ route('Scores.destroy', $score->id) }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                     </form></td>
-                    <td> <a type="button" class="btn btn-sm btn-warning " href="{{ route('Scores.edit',$score) }}">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>
