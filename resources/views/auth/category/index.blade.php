@@ -41,8 +41,8 @@
             </tbody>
         </table> 
        <br>
-       <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>
-</div>
+       <p><a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a> | <a href="{{ route('Categories.create') }}" type="button" class="btn btn-light btn-sm">add Category + </a></p>
+    </div>
 </div>
 </div>
 </div>

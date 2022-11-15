@@ -61,8 +61,9 @@
             {{ $scores->links() }}
             </div>
        <br>
-       <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>
-</div>
+       <p><a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a> | <a href="{{ route('Scores.create') }}" type="button" class="btn btn-light btn-sm">add Score + </a></p>
+
+    </div>
 </div>
 </div>
 </div>

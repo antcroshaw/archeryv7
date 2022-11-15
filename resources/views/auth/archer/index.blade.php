@@ -41,7 +41,8 @@
              </tbody>
          </table> 
         <br>
-        <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>
+        <p><a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a> | <a href="{{ route('Archers.create') }}" type="button" class="btn btn-light btn-sm">add Archer + </a></p>
+
  </div>
  </div>
  </div>
