@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Round;
 use App\Models\Score;
 use App\Models\User;
+use App\Models\Archer;
 use App\Models\Handicap;
 use Illuminate\Support\Facades\Hash;
 
@@ -50,7 +51,7 @@ class DatabaseSeeder extends Seeder
             ArcherSeeder::class
         ]);
 
-        Score::factory(20)->create();
+        Score::factory(20)->hasArcher(4)->create();
 
        
     }

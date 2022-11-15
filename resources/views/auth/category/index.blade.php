@@ -13,23 +13,35 @@
        Categories
    </div>
    <div class="card-body">
-       <div class="list-group">
-          @foreach ($categories as $category )
-           <p><a href="{{ route('Categories.show', $category->id) }}" class="list-group-item list-group-item-action">
-             {{ $category->name }} </a> 
-             <div class="d-grid gap-2 col-2 ">
-             <form method="POST" action="{{ route('Categories.destroy', $category->id) }}">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-            <a type="button" class="btn btn-warning " href="{{ route('Categories.edit',$category->id) }}">Edit</a>
-             </div></p>
-        @endforeach
-        <a href="/Categories/create" class="list-group-item list-group-item-action"> create new category +</a>
-         </div>
-         <br>
-         <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>
+         <table class="table table-striped table-hover table-bordered table-responsive">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">
+                Category Name
+                </th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($categories as $category )
+                <tr>
+                    
+                    <td>{{ $category->name }}</td>
+                    <td>  <a type="button" class="btn btn-warning " href="{{ route('Categories.edit',$category->id) }}">Edit</a></td>
+
+                    <td> <form method="POST" action="{{ route('Categories.destroy', $category->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form></td>
+                </tr>
+                @endforeach
+                
+            </tbody>
+        </table> 
+       <br>
+       <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>
 </div>
 </div>
 </div>

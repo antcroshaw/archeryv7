@@ -54,17 +54,19 @@
                     </form></td>
                 </tr>
                 @endforeach
+               
             </tbody>
-          </table> 
-          <div class="pagination justify-content-center">
-          {{ $scores->links() }}
-          </div>
-         </div>
-         <br>
-         <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>
+        </table> 
+        <div class="pagination justify-content-center">
+            {{ $scores->links() }}
+            </div>
+       <br>
+       <a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a>
 </div>
 </div>
 </div>
 </div>
 
 @endsection
+
+
