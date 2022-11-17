@@ -53,6 +53,6 @@ class DatabaseSeeder extends Seeder
 
         Score::factory(20)->hasArcher(4)->create();
 
-       
+        Handicap::factory(50)->hasRound(9)->create();
     }
 }
