@@ -34,7 +34,7 @@
                 @foreach ($rounds as $round )
                 <tr>
                     
-                    <td>{{ $round->name }}</td>
+                    <td><a href="{{ route('Rounds.show', $round->id) }}" class="text-decoration-none text-secondary"> {{ $round->name }}</a></td>
                     <td>{{ $round->location }}</td>
                     <td>{{ $round->category->name }}</td>
                     <td><a type="button" class="btn btn-warning " href="{{ route('Rounds.edit',$round->id) }}">Edit</a>
