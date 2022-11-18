@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RoundFormRequest;
 use App\Models\Category;
+use App\Models\Handicap;
 use App\Models\Round;
 use Illuminate\Http\Request;
 
@@ -64,6 +65,7 @@ class RoundController extends Controller
         return view('auth.round.show', [
 
             'round' => Round::find($id),
+            'handicaps' => Handicap::where('round_id',$id)->get()
         ]);
     }
 

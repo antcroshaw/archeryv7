@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -32,5 +31,9 @@
 </div>
         </div>
     </div>
+
+    @foreach ($handicaps as $handicap )
+        <p>{{ $handicap->handicap }}</p>
+    @endforeach
 </div>
 @endsection
