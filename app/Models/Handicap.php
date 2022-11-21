@@ -9,6 +9,8 @@ class Handicap extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['round_id','score','handicap'];
+
     public function round() {
         return $this->belongsTo(Round::class);
     }

@@ -7,33 +7,49 @@
 
 
 <div class="card">
-   <div class="card-header">
-    {{ $round->name }}
-   </div>
-   <div class="card-body">
-    <h5>Handicap Location: {{ $round->location }}</h5>
-
-   </div>
-   <div class="list-group">
-@foreach ( $round->scores as $score )
-    <p class="list-group-item"> {{ $score->score }}</p>
-@endforeach
-   </div>
-   <a href="{{ route('Scores.create', [
-    'name' => $round->name
-   ]) }}" type="button" class="btn btn-secondary btn-sm">Add new score</a>
-   </div>
-   <hr>
-   <div class="d-grid gap-2 col-2 mx-auto ">
-   <a href="{{ route('Rounds.index') }}" type="button" class="btn btn-secondary btn-sm">Back to Home</a>
-   <br>
-   </div>
-</div>
-        </div>
+    <div class="card-header">
+        {{ $round->name }}
     </div>
+    <div class="card-body">
+          <table class="table table-striped table-hover table-bordered table-responsive">
+             <thead class="thead-dark">
+               <tr>
+                 <th scope="col">
+                 Handicap
+                 </th>
+                 <th>Score</th>
+                 <th scope="col">Add 1</th>
+                 <th scope="col">Minus 1</th>
+                 <th scope="col">Delete</th>
+               </tr>
+             </thead>
+             <tbody>
+                 @foreach ($handicaps as $handicap )
+                 <tr>
+                     
+                     <td>{{ $handicap->handicap }}</td>
+                     <td>{{ $handicap->score }}</td>
+                     <td> <button class="btn-secondary btn-sm">+</button></td>
+                     <td> <button class="btn-secondary btn-sm">-</button></td>
+                     <td> <form method="POST" action="{{ route('Handicaps.destroy', $handicap->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form></td>
+                 </tr>
+                 @endforeach
+                 
+             </tbody>
+         </table> 
+        <br>
+        <p><a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a> | <a href="{{ route('Handicaps.create', [
+            'name' => $round->name
+           ]) }}" type="button" class="btn btn-light btn-sm">add handicap + </a></p>
 
-    @foreach ($handicaps as $handicap )
-        <p>{{ $handicap->handicap }}</p>
-    @endforeach
-</div>
-@endsection
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ @endsection
+ 

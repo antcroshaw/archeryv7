@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\HandicapFormRequest;
 use App\Models\Handicap;
+use App\Models\Round;
 use Illuminate\Http\Request;
 
 class HandicapController extends Controller
@@ -22,9 +24,9 @@ class HandicapController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($name)
     {
-        //
+        return view('auth.handicap.create', ['name' => $name,  'rounds' =>  Round::all()]);
     }
 
     /**
@@ -33,9 +35,21 @@ class HandicapController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HandicapFormRequest $request)
     {
-        //
+        $request->validated();
+  
+        Handicap::create([
+           'round_id' => $request->round_id,
+           'handicap' => $request->handicap,
+           'score' => $request->score
+        ]);
+ 
+        return view('auth.round.show', [
+ 
+         'round' => Round::find($request->round_id),
+         'handicaps' => Handicap::where('round_id',$request->round_id)->get()
+     ]);
     }
 
     /**
@@ -78,8 +92,11 @@ class HandicapController extends Controller
      * @param  \App\Models\Handicap  $handicap
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Handicap $handicap)
+    public function destroy($id)
     {
-        //
+        $handicap = Handicap::findOrFail($id);
+        Handicap::findOrFail($id)->delete();
+
+        return redirect('Rounds/' . $handicap->round_id);
     }
 }

@@ -25,7 +25,8 @@ class HandicapFormRequest extends FormRequest
     {
         $rules = [
             'round_id' => 'required',
-            'handicap' => 'required|integer'
+            'handicap' => 'required|integer',
+            'score' => 'required|integer' 
            ];
            return $rules;
     }

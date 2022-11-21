@@ -26,12 +26,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/Scores/create/{name?}', [ScoreController::class, 'create'])->name('Scores.create');
+Route::get('/Handicaps/create/{name?}', [HandicapController::class, 'create'])->name('Handicaps.create');
 
 
 Route::resource('Categories', CategoryController::class);
 Route::resource('Rounds', RoundController::class);
 Route::resource('Scores',ScoreController::class)->except('create');
+Route::resource('Handicaps',HandicapController::class)->except('create');
 Route::resource('Archers',ArcherController::class);
+
+
 
 
 
