@@ -40,7 +40,11 @@
                  @endforeach
                  
              </tbody>
+            
          </table> 
+         <div class="pagination justify-content-center">
+            {{ $handicaps->links() }}
+            </div>
         <br>
         <p><a href="/home" type="button" class="btn btn-secondary btn-sm">admin menu</a> | <a href="{{ route('Handicaps.create', [
             'name' => $round->name

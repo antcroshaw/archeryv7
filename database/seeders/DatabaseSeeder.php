@@ -53,6 +53,14 @@ class DatabaseSeeder extends Seeder
 
         Score::factory(20)->hasArcher(4)->create();
 
-        Handicap::factory(50)->hasRound(9)->create();
+        $rounds = Round::all();
+        foreach($rounds as $round) {
+            $max_handicap = 105;
+            for ($handicap=1; $handicap < $max_handicap; $handicap++) { 
+                Handicap::factory()->hasRound(9)->create(['handicap' => $handicap, 'round_id' => $round->id]);
+            }
+        }
+        // Handicap::factory(50)->hasRound(9)->create();
+       
     }
 }

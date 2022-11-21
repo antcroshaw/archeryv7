@@ -17,9 +17,9 @@ class HandicapFactory extends Factory
     public function definition()
     {
         return [
-            'round_id' => $this->faker->numberBetween(1,9),
-            'handicap' => $this->faker->unique()->numberBetween(1,104),
-            'score' => $this->faker->unique()->numberBetween(1,100)
+            // 'round_id' => $this->faker->numberBetween(1,9),
+            // 'handicap' => $this->faker->unique()->numberBetween(1,104),
+            'score' => $this->faker->numberBetween(1,100)
         ];
     }
 }

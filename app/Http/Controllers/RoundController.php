@@ -65,7 +65,7 @@ class RoundController extends Controller
         return view('auth.round.show', [
 
             'round' => Round::find($id),
-            'handicaps' => Handicap::where('round_id',$id)->get()
+            'handicaps' => Handicap::where('round_id',$id)->orderBy('handicap','asc')->paginate(10)
         ]);
     }
 

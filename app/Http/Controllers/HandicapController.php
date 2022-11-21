@@ -45,11 +45,7 @@ class HandicapController extends Controller
            'score' => $request->score
         ]);
  
-        return view('auth.round.show', [
- 
-         'round' => Round::find($request->round_id),
-         'handicaps' => Handicap::where('round_id',$request->round_id)->get()
-     ]);
+        return redirect('Rounds/' . $request->round_id);
     }
 
     /**
