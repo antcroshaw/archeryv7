@@ -40,6 +40,7 @@ class ArcherController extends Controller
      */
     public function store(ArcherFormRequest $request)
     {
+       
         $request->validated();
         Archer::create([
             'name' => $request->name,

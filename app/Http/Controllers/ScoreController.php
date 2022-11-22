@@ -55,9 +55,8 @@ class ScoreController extends Controller
           'score' => $request->score
        ]);
 
-       return view('auth.round.show', [
-
-        'round' => Round::find($request->round_id),
+       return view('auth.score.index', [
+        'scores' =>  Score::orderBy('id','desc')->paginate(10)
     ]);
     }
 

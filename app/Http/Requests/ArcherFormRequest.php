@@ -23,6 +23,7 @@ class ArcherFormRequest extends FormRequest
      */
     public function rules()
     {
+       
         $rules = [
             'name' => 'required',
             'DOB' => 'required',
