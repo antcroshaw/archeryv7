@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ScoreController;
+use App\Http\Controllers\RoundController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/Rounds/{id}/inc', [RoundController::class, 'inc'])->name('handicapInc');
+Route::get('/Rounds/{id}/dec', [RoundController::class, 'dec'])->name('handicapDec');
 
 

@@ -69,6 +69,22 @@ class RoundController extends Controller
         ]);
     }
 
+    public function inc($id) {
+        $handicap = Handicap::find($id);
+        $handicap->score++;
+        $handicap->save();
+        return back();
+    }
+
+    public function dec($id) {
+        $handicap = Handicap::find($id);
+        $handicap->score--;
+        $handicap->save();
+        return back();
+    }
+
+
+
     /**
      * Show the form for editing the specified resource.
      *

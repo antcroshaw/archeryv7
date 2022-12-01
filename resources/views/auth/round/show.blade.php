@@ -29,8 +29,8 @@
                      
                      <td>{{ $handicap->handicap }}</td>
                      <td>{{ $handicap->score }}</td>
-                     <td> <button class="btn-secondary btn-sm">+</button></td>
-                     <td> <button class="btn-secondary btn-sm">-</button></td>
+                     <td> <a href="{{ route('handicapInc', ['id' => $handicap->id]) }}"><button class="btn-secondary btn-sm">+</button></a></td>
+                     <td> <a href="{{ route('handicapDec', ['id' => $handicap->id]) }}"><button class="btn-secondary btn-sm">-</button></a></td>
                      <td> <form method="POST" action="{{ route('Handicaps.destroy', $handicap->id) }}">
                         @csrf
                         @method('DELETE')
