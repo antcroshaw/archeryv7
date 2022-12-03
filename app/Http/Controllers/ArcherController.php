@@ -48,7 +48,7 @@ class ArcherController extends Controller
             'sex' => $request->sex
          ]);
   
-           return redirect('Archers/');
+           return redirect('Archers/')->with('message', 'Archer has been added successfully');
     }
 
     /**
@@ -109,6 +109,6 @@ class ArcherController extends Controller
     {
         Archer::findOrFail($id)->delete();
 
-        return redirect(route('Archers.index'));
+        return redirect('Archers/')->with('message', 'Archer has been deleted successfully');
     }
 }

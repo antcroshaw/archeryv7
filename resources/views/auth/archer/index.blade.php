@@ -13,6 +13,12 @@
         Archers
     </div>
     <div class="card-body">
+        @if ($message = session('message'))
+        <div class="alert alert-success">
+          {{ $message }}
+        </div>
+        @endif
+    </div>
           <table class="table table-striped table-hover table-bordered table-responsive">
              <thead class="thead-dark">
                <tr>
@@ -30,7 +36,7 @@
                      <td>{{ $archer->name }}</td>
                      <td>  <a type="button" class="btn btn-warning " href="{{ route('Archers.edit',$archer->id) }}">Edit</a></td>
  
-                     <td> <form method="POST" action="{{ route('Archers.destroy', $archer->id) }}">
+                     <td> <form method="POST" onsubmit="return confirm('The archer will be removed permanently. Are you sure?')" action="{{ route('Archers.destroy', $archer->id) }}">
                          @csrf
                          @method('DELETE')
                          <button type="submit" class="btn btn-danger">Delete</button>
