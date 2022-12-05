@@ -55,9 +55,12 @@ class ScoreController extends Controller
           'score' => $request->score
        ]);
 
-       return view('auth.score.index', [
-        'scores' =>  Score::orderBy('id','desc')->paginate(10)
-    ]);
+    //    return view('auth.score.index', [
+    //     'scores' =>  Score::orderBy('id','desc')->paginate(10),
+    //     'message' => 'Score has been added successfully'
+    // ]);
+
+    return redirect('Scores/')->with('message', 'Score has been added successfully');
     }
 
     /**
@@ -118,7 +121,7 @@ class ScoreController extends Controller
     public function destroy($id)
     {
         Score::destroy($id);
-        return redirect(route('Scores.index'));
+        return redirect('Scores/')->with('message', 'Score has been deleted successfully');
     }
 
    

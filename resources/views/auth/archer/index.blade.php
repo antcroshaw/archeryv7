@@ -12,14 +12,14 @@
     <div class="card-header">
         Archers
     </div>
-    <div class="card-body">
+    <div class="card-body px-2 ">
         @if ($message = session('message'))
         <div class="alert alert-success">
           {{ $message }}
         </div>
         @endif
     </div>
-          <table class="table table-striped table-hover table-bordered table-responsive">
+          <table class="table p-2 table-striped table-hover table-bordered table-responsive ">
              <thead class="thead-dark">
                <tr>
                  <th scope="col">

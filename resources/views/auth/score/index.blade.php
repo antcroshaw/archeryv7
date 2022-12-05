@@ -15,7 +15,13 @@
    <div class="card-body">
     <br>
          
-       
+    <div class="card-body px-2 ">
+        @if ($message = session('message'))
+        <div class="alert alert-success">
+          {{ $message }}
+        </div>
+        @endif
+    </div>
        
 
         <table class="table table-striped table-hover table-bordered table-responsive">
@@ -47,7 +53,7 @@
                     <td>{{ $score->location }}</td>
                     <td> <a type="button" class="btn btn-sm btn-warning " href="{{ route('Scores.edit',$score) }}">Edit</a></td>
 
-                    <td> <form method="POST" action="{{ route('Scores.destroy', $score->id) }}">
+                    <td> <form method="POST"  onsubmit="return confirm('The archer will be removed permanently. Are you sure?')" action="{{ route('Scores.destroy', $score->id) }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
