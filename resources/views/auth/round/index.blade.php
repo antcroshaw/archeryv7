@@ -13,7 +13,14 @@
        Rounds
    </div>
    <div class="card-body">
-     
+ 
+     <div class="card-body px-2 ">
+      @if ($message = session('message'))
+      <div class="alert alert-success">
+        {{ $message }}
+      </div>
+      @endif
+  </div>
          <table class="table table-striped table-hover table-bordered table-responsive">
             <thead class="thead-dark">
               <tr>
@@ -39,7 +46,7 @@
                     <td>{{ $round->category->name }}</td>
                     <td><a type="button" class="btn btn-warning " href="{{ route('Rounds.edit',$round->id) }}">Edit</a>
                     </td>
-                    <td> <form method="POST" action="{{ route('Rounds.destroy', $round->id) }}">
+                    <td> <form method="POST" onsubmit="return confirm('The round will be removed permanently. Are you sure?')" action="{{ route('Rounds.destroy', $round->id) }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

@@ -130,6 +130,6 @@ class RoundController extends Controller
         $round = Round::findOrFail($id);
         Round::findOrFail($id)->delete();
 
-        return redirect('Categories/' . $round->category_id);
+        return redirect('Rounds/')->with('message', 'Round has been deleted successfully');
     }
 }
