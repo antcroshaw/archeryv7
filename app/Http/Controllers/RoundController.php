@@ -49,7 +49,7 @@ class RoundController extends Controller
           'category_id' => $request->category_id
        ]);
 
-         return redirect('Categories/' . $request->category_id);
+       return redirect('Rounds/')->with('message', 'Round has been created successfully');
     }
 
     /**

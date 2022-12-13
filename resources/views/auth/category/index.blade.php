@@ -13,6 +13,15 @@
        Categories
    </div>
    <div class="card-body">
+ 
+    <div class="card-body px-2 ">
+     @if ($message = session('message'))
+     <div class="alert alert-success">
+       {{ $message }}
+     </div>
+     @endif
+ </div>
+   <div class="card-body">
          <table class="table table-striped table-hover table-bordered table-responsive">
             <thead class="thead-dark">
               <tr>
@@ -30,7 +39,7 @@
                     <td>{{ $category->name }}</td>
                     <td>  <a type="button" class="btn btn-warning " href="{{ route('Categories.edit',$category->id) }}">Edit</a></td>
 
-                    <td> <form method="POST" action="{{ route('Categories.destroy', $category->id) }}">
+                    <td> <form method="POST" onsubmit="return confirm('The category will be removed permanently. Are you sure?')" action="{{ route('Categories.destroy', $category->id) }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

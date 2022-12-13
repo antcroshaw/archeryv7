@@ -10,6 +10,7 @@
     <div class="card-header">
         {{ $round->name }}
     </div>
+    
     <div class="card-body">
           <table class="table table-striped table-hover table-bordered table-responsive">
              <thead class="thead-dark">

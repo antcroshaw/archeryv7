@@ -47,7 +47,7 @@ class CategoryController extends Controller
      Category::create([
         'name' => $request->name
      ]);
-       return redirect(route('Categories.index'));
+     return redirect('Categories/')->with('message', 'Category has been added successfully');
     }
 
     /**
@@ -107,6 +107,6 @@ class CategoryController extends Controller
 
         Category::findOrFail($id)->delete();
 
-        return redirect(route('Categories.index'));
+        return redirect('Categories/')->with('message', 'Categeory has been deleted successfully');
     }
 }
