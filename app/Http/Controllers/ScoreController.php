@@ -109,7 +109,8 @@ class ScoreController extends Controller
           'location' => $request->location,
           'score' => $request->score
        ]);
-         return redirect(route('Scores.index'));
+       return redirect('Scores/')->with('message', 'Score has been updated successfully');
+
     }
 
     /**

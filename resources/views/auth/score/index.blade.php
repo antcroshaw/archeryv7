@@ -47,7 +47,7 @@
                 @foreach ($scores as $score )
                 <tr>
                     
-                    <td>{{ $score->archer->name }}</td>
+                    <td><a href="{{ route('Scores.show', $score->id) }}" class="text-decoration-none text-secondary"> {{ $score->archer->name }}</a></td>
                     <td>{{ $score->round->name }}</td>
                     <td>{{ $score->score }}</td>
                     <td>{{ $score->location }}</td>
