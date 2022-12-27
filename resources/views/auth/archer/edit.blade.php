@@ -31,8 +31,8 @@
               <input type="text" class="form-control" id="name" value="{{ $archer->name }}" name="name">
             </div>
             <div class="mb-3">
-                <label for="archer" class="form-label" value="{{ $archer->DOB }}">DOB</label>
-               <input type="date" name="DOB">
+                <label for="archer" class="form-label">DOB</label>
+               <input type="date" value="{{ $archer->DOB }}" name="DOB">
                 </select>
               </div>
               <div class="mb-3">

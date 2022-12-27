@@ -96,7 +96,7 @@ class ArcherController extends Controller
             'DOB' => $request->DOB,
             'sex' => $request->sex
         ]);
-        return redirect('Archers/' . $request->id);
+        return redirect('Archers/' . $request->id)->with('message', 'Archer has been updated successfully');;
     }
 
     /**

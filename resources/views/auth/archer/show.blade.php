@@ -8,7 +8,13 @@
 
 
 <div class="card">
-
+  <div class="card-body px-2 ">
+    @if ($message = session('message'))
+    <div class="alert alert-success">
+      {{ $message }}
+    </div>
+    @endif
+</div>
    <div class="card-header">
      {{ $archer->name }}
    </div>

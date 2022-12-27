@@ -13,6 +13,13 @@
      {{ $category->name }}
    </div>
    <div class="card-body">
+    <div class="card-body px-2 ">
+      @if ($message = session('message'))
+      <div class="alert alert-success">
+        {{ $message }}
+      </div>
+      @endif
+  </div>
     <div class="list-group">
        @forelse ($rounds as $round )
         <p><a href="{{ route('Rounds.show', $round->id) }}" class="list-group-item list-group-item-action">

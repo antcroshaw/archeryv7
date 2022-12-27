@@ -12,8 +12,7 @@
    <div class="card-header">
        Categories
    </div>
-   <div class="card-body">
- 
+
     <div class="card-body px-2 ">
      @if ($message = session('message'))
      <div class="alert alert-success">
