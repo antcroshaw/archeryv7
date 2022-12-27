@@ -109,7 +109,7 @@ class ScoreController extends Controller
           'location' => $request->location,
           'score' => $request->score
        ]);
-       return redirect('Scores/')->with('message', 'Score has been updated successfully');
+       return redirect('Scores/' . $id)->with('message', 'Score has been updated successfully');
 
     }
 
