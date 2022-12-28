@@ -9,14 +9,14 @@
 
 <div class="card">
 
-   <div class="card-header">
-     {{ $score->score }}
+   <div class="card-header text-center" >
+     {{ $score->archer->name }}
    </div>
    <div class="card-body">
     <div class="list-group">
-      <p>Archer Name: {{ $score->archer->name }}</p>
-      <p>Location: {{ $score->location }}</p>
-      <p>Round type: {{ $score->round->name }}</p>
+      <p class="strong text-center">Score: {{ $score->score }}</p> 
+      <p class="strong text-center">Location: {{ $score->location }}</p>
+      <p class="strong text-center">Round type: {{ $score->round->name }}</p>
       </div>
       
 </div>

@@ -33,7 +33,7 @@
                  @foreach ($archers as $archer )
                  <tr>
                      
-                     <td>{{ $archer->name }}</td>
+                    <td><a href="{{ route('Archers.show', $archer->id) }}" class="text-decoration-none text-secondary"> {{ $archer->name }}</a></td>
                      <td>  <a type="button" class="btn btn-warning " href="{{ route('Archers.edit',$archer->id) }}">Edit</a></td>
  
                      <td> <form method="POST" onsubmit="return confirm('The archer will be removed permanently. Are you sure?')" action="{{ route('Archers.destroy', $archer->id) }}">

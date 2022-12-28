@@ -29,6 +29,7 @@
   @endforeach
       </ul>     
 </div>
+   </div></div>
 <br>
 
 {{  $scores->links() }}
