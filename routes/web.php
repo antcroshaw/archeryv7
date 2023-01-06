@@ -25,6 +25,9 @@ use App\Http\Controllers\HandicapController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('about', function(){
+    return view('about');
+});
 Route::get('/Scores/create/{name?}', [ScoreController::class, 'create'])->name('Scores.create');
 Route::get('/Handicaps/create/{name?}', [HandicapController::class, 'create'])->name('Handicaps.create');
 
