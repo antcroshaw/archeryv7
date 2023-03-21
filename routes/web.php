@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\ArcherController;
-use App\Models\Category;
 use App\Models\Round;
+use App\Models\Category;
 use App\Models\Handicap;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoundController;
 use App\Http\Controllers\ScoreController;
+use App\Http\Controllers\ArcherController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HandicapController;
 
 /*
@@ -30,6 +31,7 @@ Route::get('about', function () {
 });
 Route::get('/Scores/create/{name?}', [ScoreController::class, 'create'])->name('Scores.create');
 Route::get('/Handicaps/create/{name?}', [HandicapController::class, 'create'])->name('Handicaps.create');
+Route::get('/profile/{user}',[UserController::class, 'show']);
 
 
 Route::resource('Categories', CategoryController::class);
